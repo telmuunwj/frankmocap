@@ -1,8 +1,6 @@
 pip
 gdown
 opencv-python
-PyOpenGL 
-PyOpenGL_accelerate
 pycocotools
 pafy
 youtube-dl
