@@ -107,7 +107,7 @@ def run_regress(
     return body_bbox_list, hand_bbox_list, integral_output_list
 
 
-def run_frank_mocap(args, bbox_detector, body_mocap, hand_mocap, visualizer):
+def run_frank_mocap(args, bbox_detector, body_mocap, hand_mocap, visualizer=None):
     #Setup input data to handle different types of inputs
     input_type, input_data = demo_utils.setup_input(args)
 
