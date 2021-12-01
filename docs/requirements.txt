@@ -21,5 +21,6 @@ smplx
 sklearn
 opendr
 chumpy
+pytorch==1.6.0
 torchvision==0.7.0 
 imgaug==0.2.6
