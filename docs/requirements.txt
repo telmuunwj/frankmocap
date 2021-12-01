@@ -1,5 +1,4 @@
 pip
-numpy
 gdown
 opencv-python
 PyOpenGL 
@@ -20,4 +19,3 @@ jinja2
 smplx
 sklearn
 chumpy
-imgaug==0.2.6
