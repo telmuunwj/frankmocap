@@ -1,7 +1,6 @@
 pip
 gdown
 opencv-python
-pycocotools
 pafy
 youtube-dl
 scipy
@@ -17,5 +16,4 @@ tqdm
 jinja2
 smplx
 sklearn
-opendr
 chumpy
