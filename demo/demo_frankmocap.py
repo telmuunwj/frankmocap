@@ -177,53 +177,56 @@ def run_frank_mocap(args, bbox_detector, body_mocap, hand_mocap, visualizer):
             args, img_original_bgr, 
             body_bbox_list, hand_bbox_list, bbox_detector,
             body_mocap, hand_mocap)
-
-        # save the obtained body & hand bbox to json file
-        if args.save_bbox_output: 
-            demo_utils.save_info_to_json(args, image_path, body_bbox_list, hand_bbox_list)
-
-        if len(body_bbox_list) < 1: 
-            print(f"No body deteced: {image_path}")
-            continue
-
-        pred_mesh_list = demo_utils.extract_mesh_from_output(pred_output_list)
-
-        # visualization
-        res_img = visualizer.visualize(
-            img_original_bgr,
-            pred_mesh_list = pred_mesh_list,
-            body_bbox_list = body_bbox_list,
-            hand_bbox_list = hand_bbox_list)
         
-       # show result in the screen
-        if not args.no_display:
-            res_img = res_img.astype(np.uint8)
-            ImShow(res_img)
+        return pred_output_list
 
-        # save result image
-        if args.out_dir is not None:
-            demo_utils.save_res_img(args.out_dir, image_path, res_img)
+#         # save the obtained body & hand bbox to json file
+#         if args.save_bbox_output: 
+#             demo_utils.save_info_to_json(args, image_path, body_bbox_list, hand_bbox_list)
 
-        # save predictions to pkl
-        if args.save_pred_pkl:
-            demo_type = 'frank'
-            demo_utils.save_pred_to_pkl(
-                args, demo_type, image_path, body_bbox_list, hand_bbox_list, pred_output_list)
-        # save predictions to json
-        if args.save_pred_json:
-            demo_type = 'frank'
-            demo_utils.save_pred_to_json(
-                args, demo_type, image_path, body_bbox_list, hand_bbox_list, pred_output_list)
+#         if len(body_bbox_list) < 1: 
+#             print(f"No body deteced: {image_path}")
+#             continue
 
-        print(f"Processed : {image_path}")
+#         pred_mesh_list = demo_utils.extract_mesh_from_output(pred_output_list)
+        
 
-    # save images as a video
-    if not args.no_video_out and input_type in ['video', 'webcam']:
-        demo_utils.gen_video_out(args.out_dir, args.seq_name)
+#         # visualization
+#         res_img = visualizer.visualize(
+#             img_original_bgr,
+#             pred_mesh_list = pred_mesh_list,
+#             body_bbox_list = body_bbox_list,
+#             hand_bbox_list = hand_bbox_list)
+        
+#        # show result in the screen
+#         if not args.no_display:
+#             res_img = res_img.astype(np.uint8)
+#             ImShow(res_img)
 
-    if input_type =='webcam' and input_data is not None:
-        input_data.release()
-    cv2.destroyAllWindows()
+#         # save result image
+#         if args.out_dir is not None:
+#             demo_utils.save_res_img(args.out_dir, image_path, res_img)
+
+#         # save predictions to pkl
+#         if args.save_pred_pkl:
+#             demo_type = 'frank'
+#             demo_utils.save_pred_to_pkl(
+#                 args, demo_type, image_path, body_bbox_list, hand_bbox_list, pred_output_list)
+#         # save predictions to json
+#         if args.save_pred_json:
+#             demo_type = 'frank'
+#             demo_utils.save_pred_to_json(
+#                 args, demo_type, image_path, body_bbox_list, hand_bbox_list, pred_output_list)
+
+#         print(f"Processed : {image_path}")
+
+#     # save images as a video
+#     if not args.no_video_out and input_type in ['video', 'webcam']:
+#         demo_utils.gen_video_out(args.out_dir, args.seq_name)
+
+#     if input_type =='webcam' and input_data is not None:
+#         input_data.release()
+#     cv2.destroyAllWindows()
 
 def main():
     args = DemoOptions().parse()
