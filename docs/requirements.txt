@@ -1,4 +1,5 @@
 pip
+numpy
 gdown
 opencv-python
 PyOpenGL 
