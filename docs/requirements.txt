@@ -21,3 +21,4 @@ smplx
 sklearn
 opendr
 chumpy
+torchvision==0.7.0 
