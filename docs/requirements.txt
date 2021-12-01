@@ -12,7 +12,6 @@ pillow>=7.1.0
 easydict
 cython
 cffi
-opencv-python
 msgpack
 pyyaml
 tensorboardX
@@ -20,7 +19,6 @@ tqdm
 jinja2
 smplx
 sklearn
-opendr
 chumpy
 pytorch==1.6.0
 torchvision==0.7.0 
